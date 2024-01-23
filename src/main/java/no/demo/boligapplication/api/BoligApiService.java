@@ -1,4 +1,4 @@
-package no.demo.application.api;
+package no.demo.boligapplication.api;
 
 public interface BoligApiService {
 

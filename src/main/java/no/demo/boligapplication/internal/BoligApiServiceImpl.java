@@ -1,14 +1,18 @@
-package no.demo.application.internal;
+package no.demo.boligapplication.internal;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import no.demo.application.api.BoligApiService;
-import no.demo.application.api.BoligSoknadRequest;
+import no.demo.boligapplication.api.BoligApiService;
+import no.demo.boligapplication.api.BoligSoknadRequest;
 
 @Service
+@Configuration
+@ComponentScan
 class BoligApiServiceImpl implements BoligApiService {
 
     private final Map<String, BoligSoknadRequest> soknaderMap = new ConcurrentHashMap<>();
