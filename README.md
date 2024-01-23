@@ -13,6 +13,7 @@ For å starte applikasjonen, kjør følgende kommando i terminalen:
 ## Dokumentasjon av API (OpenAPI / Swagger)
 
 For å se dokumentasjon av API, gå til følgende URL i nettleseren:
-```http://localhost:8080/swagger-ui.html```
 
-Man kan også teste API-et direkte fra Swagger-grensesnittet.
+http://localhost:8080/swagger-ui.html
+
+Det er også mulig å teste API-et direkte fra Swagger-grensesnittet.
