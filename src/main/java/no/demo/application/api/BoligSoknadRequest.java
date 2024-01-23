@@ -9,9 +9,9 @@ import jakarta.validation.constraints.NotNull;
 public record BoligSoknadRequest(List<Soker> sokere, int inntekt, String behov) {
 
     public BoligSoknadRequest(
-        @NotNull(message = "sokere cannot be null") @JsonProperty List<Soker> sokere,
-        @NotNull(message = "inntekt cannot be null") @JsonProperty int inntekt,
-        @NotNull(message = "behov cannot be null") @JsonProperty String behov) {
+        @NotNull(message = "sokere kan ikke være null") @JsonProperty List<Soker> sokere,
+        @NotNull(message = "inntekt kan ikke være null") @JsonProperty int inntekt,
+        @NotNull(message = "behov kan ikke være null") @JsonProperty String behov) {
         this.sokere = sokere;
         this.inntekt = inntekt;
         this.behov = behov;

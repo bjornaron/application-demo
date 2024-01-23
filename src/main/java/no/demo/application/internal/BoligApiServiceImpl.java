@@ -15,9 +15,9 @@ class BoligApiServiceImpl implements BoligApiService {
 
     @Override
     public String sendBoligSoknad(BoligSoknadRequest boligSoknad) {
-        // Check if any previous HousingApplicationRequest with the same fnr exists
+        // Sjekk om noen tidligere BoligSoknadRequest-er med det samme fnr finnes
         if (harEksisterendeSoknadMedSammeFnr(boligSoknad)) {
-            return "Søknad avvist. En søknad med oppgitt fnr eksisterer allerede.";
+            return "En eksisterende søknad med oppgitt fnr finnes allerede.";
         }
 
         String soknadsReferanse = genererSoknadsReferanse();
@@ -25,7 +25,7 @@ class BoligApiServiceImpl implements BoligApiService {
         // Bruk søknadsreferansen for å lagre boligsøknaden i et map
         soknaderMap.put(soknadsReferanse, boligSoknad);
 
-        return "Søknad mottatt. Søknadsreferanse: " + soknadsReferanse;
+        return "Søknad mottatt. Søknadsreferansen er: " + soknadsReferanse;
     }
 
     @Override
@@ -39,11 +39,11 @@ class BoligApiServiceImpl implements BoligApiService {
     }
 
     private String genererSoknadsReferanse() {
-        return "Soknad" + System.currentTimeMillis();
+        return "SoknadsRef" + System.currentTimeMillis();
     }
 
     private boolean harEksisterendeSoknadMedSammeFnr(BoligSoknadRequest nyBoligSoknad) {
-        // Sjekk om det finnes eksisterende søknad med samme fnr
+        // Sjekk om det finnes eksisterende søknad for oppgitt(e) fnr
         return soknaderMap.values().stream()
             .anyMatch(previousRequest -> previousRequest.sokere().stream()
                 .anyMatch(soker -> nyBoligSoknad.sokere().stream()
